@@ -134,6 +134,7 @@ We must create an HTML view with a Javascript file linked to the HTML to interce
 ```
 const url = "http://resources/myresource/client/html/index.html";
 let view = new alt.WebView(url);
+view.showCursor(true);
 view.emit('helloWorld', args);
 ```
 
