@@ -28,7 +28,7 @@ This boiler plate is entirely meant to take the setup out of ALT:V node-js and j
 ### I'm Coming From Rage
 Well, you're in for a treat. The sync is great. The rest of it has a long way to go. You'll need to build A LOT of features from the ground up. If you were struggling to develop on RAGE this is probably not for you at the time of the creation of this README file.
 
-You will need to implement a lot of features outright; there isn't even a chatbox built in. This boilerplate provides the chatbox from the AltV.mp server downloads. You'll see a reference to it inside of the config.cfg for **myresource**.
+You will need to implement a lot of features outright; there isn't even a chatbox built in. This boilerplate provides the chatbox from the AltV.mp server downloads. You'll see a reference to it inside of the resource.cfg for **myresource**.
 
 If you change the folder name of **myresource** you will need to change the **server.cfg** as well.
 
