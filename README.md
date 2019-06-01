@@ -65,6 +65,7 @@ alt.on('eventName', (x, y, z, zz) => {
     console.log(z);
     console.log(zz);
 });
+```
 
 **Server Events:**
 ```
