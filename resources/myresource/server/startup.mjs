@@ -1,52 +1,40 @@
-import fs from 'fs';
-import path from 'path';
+import glob from 'glob';
 
-// Files to load from. The name of this resource and the 'server' directory.
-// This will load all files inside of it.
 const moduleName = `myresource`;
 const modulePath = `./resources/${moduleName}/server`;
+const exclusions = ['startup.mjs'];
+const startTime = new Date().getTime();
 
-var filesToLoad = [];
-var timeSinceLastFileAdded = 0;
-var attemptingToLoad = "";
+var getDirectories = (src, callback) => {
+    glob(src + '/**/*.mjs', callback);
+};
 
-function RetrieveAllFiles(currentDirPath) {
-    fs.readdir(currentDirPath, (err, files) => {
-        if (err) throw new Error(err);
+getDirectories(`${modulePath}`, (err, files) => {
+    var loadedFilesCount = 0;
 
-        // Read each file.
-        files.forEach((name) => {
-            var filePath = path.join(currentDirPath, name).replace(/\\/g, `/`);
-            var stat = fs.statSync(filePath);
-            if (stat.isFile() && filePath.includes('.mjs') && !filePath.includes('startup.mjs')) {
-                var finalPath = filePath.replace(`resources/${moduleName}/server/`, `./`);
-                filesToLoad.push(finalPath);
-                timeSinceLastFileAdded = Date.now() + 2000;
-            } else if (stat.isDirectory()) {
-                RetrieveAllFiles(filePath);
-            }
-        });
+    files.forEach((name) => {
+        for(var i = 0; i < exclusions.length; i++) {
+            if(!name.includes(exclusions[i])) 
+                continue;
+            return;
+        }
+
+        var fileToLoad = name.replace(`resources/${moduleName}/server/`, `./`);
+        ImportFile(fileToLoad);
+        loadedFilesCount += 1;
     });
+
+    console.log('\x1b[32m', `==> Loaded ${loadedFilesCount} files in ${(new Date().getTime() - startTime) / 1000}s`, '\x1b[0m')
+});
+
+// ie. ./resources/myresource/test.mjs
+function ImportFile(filePath) {
+    import(filePath).then(
+        (loadedModule) => {
+            loadedModule.Startup();
+        },
+        (error) => {
+            console.log(error);
+        }
+    );
 }
-
-var loadFiles = setInterval(() => {
-    console.log('Loading files please wait...');
-    if (timeSinceLastFileAdded > Date.now()) {
-        return;
-    }
-
-    clearInterval(loadFiles);
-
-    for(var i = 0; i < filesToLoad.length; i++) {
-        attemptingToLoad = filesToLoad[i];
-        import(filesToLoad[i]).then(
-            (res) => {
-                res.Startup();
-            },
-            (err) => {
-                console.error(err);
-            });
-    }
-}, 500);
-
-RetrieveAllFiles(modulePath);
