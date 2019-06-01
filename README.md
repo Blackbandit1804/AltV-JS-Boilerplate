@@ -1,10 +1,21 @@
 ### AltV.mp - JS - Boiler Plate
 ---
-A super basic boiler plate that will let you write an ALT:V resource from scratch. Doesn't have any types included in it. You'll have to decipher a lot of the functions that exist or potentially refer to other game modes and documentation.
-
+A super basic boiler plate that will let you write an ALT:V resource from scratch.
 This boiler plate is entirely meant to take the setup out of ALT:V node-js and just get you going outright.
 
-**Note:** This does **NOT** provider type support. You are going in blind.
+To continue using types in new files add the following at the top of your file:
+
+**Server**
+```
+/// <reference path="../../../../typings/altv-server.d.ts" />
+```
+
+**Client**
+```
+/// <reference path="../../../typings/altv-client.d.ts" />
+```
+
+**IMPORTANT:** These file paths are folder specific. If you add additional folders you will need to adjust accordingly. You can always find new typings on the AltV Discord if these are out of date.
 
 ---
 ### Basic Installation:
