@@ -104,6 +104,7 @@ alt.emitClient(player, 'uniqueEvent', args);
 ```
 
 **Client from Server**
+
 When you recieve an event from the server for a specific player.
 ```
 alt.onServer('uniqueEvent', (args) => {
@@ -112,19 +113,23 @@ alt.onServer('uniqueEvent', (args) => {
 ```
 
 **Client to Server**
+
 We don't have to specify the player because this is running locally for the player who its currently calling from.
 ```
 alt.emitServer('uniqueServerEvent`, args);
 ```
 
 **Server from Client**
+
 When you recieve an event from the client for a specific player.
 ```
 alt.onClient('uniqueServerEvent', (player, args) => {
     console.log('I got an event from the client.');
 });
+```
 
 **Client to CEF**
+
 We must create an HTML view with a Javascript file linked to the HTML to intercept events from clientside.
 ```
 const url = "http://resources/myresource/client/html/index.html";
@@ -133,6 +138,7 @@ view.emit('helloWorld', args);
 ```
 
 **CEF from Client**
+
 As stated above you need to add a script to your HTML file. Usually at the bottom of the body.
 *Inside your .html file*
 ```
@@ -153,12 +159,14 @@ function emitFunction(args) {
 ```
 
 **CEF to Client**
+
 Sending from the *app.js* requires a simple emit.
 ```
 alt.emit('fromCEF', args);
 ```
 
 **Client from CEF**
+
 Receiving an emit event from the CEF just requires adding an **on** to the view.
 ```
 view.on('fromCEF', (args) => {
