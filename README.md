@@ -1,7 +1,7 @@
 ### AltV.mp - JS - Boiler Plate
 ---
-A super basic boiler plate that will let you write an ALT:V resource from scratch.
-This boiler plate is entirely meant to take the setup out of ALT:V node-js and just get you going outright.
+A super basic boiler plate that will let you write an alt:V resource from scratch.
+This boiler plate is entirely meant to take the setup out of alt:V node-js and just get you going outright.
 
 To continue using types in new files add the following at the top of your file:
 
@@ -20,15 +20,15 @@ To continue using types in new files add the following at the top of your file:
 ---
 ### Basic Installation:
 * Clone this repository or download it directly and extract it.
-* Download a copy of the ALT:V MP Server for NodeJS
+* Download a copy of the alt:V MP Server.
 	* Make sure you add the NodeJS module to your download.
 	* Make sure you add the Data module to your download.
-* Extract the .zip received from ALT:V into the cloned folder.
+* Extract the .zip received from alt:V into the cloned folder.
 * Replace anything **EXCEPT** `config.cfg`
 * Open a command prompt and run `npm install`
 * It may not install anything but its best to run it anyways; it gets you familiar with npm anyway.
 
-**Note:** Alt:V uses ES6 for importing packages from npm.
+**Note:** alt:V uses ES6 for importing packages from npm.
 `import x from 'y'`
 
 ---
