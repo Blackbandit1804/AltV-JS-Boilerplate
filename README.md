@@ -56,6 +56,16 @@ reconnect
 ---
 
 ### Events
+
+Events are pretty straight forward. You just need to do for server-side.
+```
+alt.on('eventName', (x, y, z, zz) => {
+    console.log(x);
+    console.log(y);
+    console.log(z);
+    console.log(zz);
+});
+
 **Server Events:**
 ```
 playerConnect
@@ -91,11 +101,28 @@ We must specify the player to call this client event for.
 ```
 alt.emitClient(player, 'uniqueEvent', args);
 ```
+
+**Client from Server**
+When you recieve an event from the server for a specific player.
+```
+alt.onServer('uniqueEvent', (args) => {
+    alt.log('I got something from the server.');
+});
+```
+
 **Client to Server**
 We don't have to specify the player because this is running locally for the player who its currently calling from.
 ```
 alt.emitServer('uniqueServerEvent`, args);
 ```
+
+**Server from Client**
+When you recieve an event from the client for a specific player.
+```
+alt.onClient('uniqueServerEvent', (player, args) => {
+    console.log('I got an event from the client.');
+});
+
 **Client to CEF**
 We must create an HTML view with a Javascript file linked to the HTML to intercept events from clientside.
 ```
