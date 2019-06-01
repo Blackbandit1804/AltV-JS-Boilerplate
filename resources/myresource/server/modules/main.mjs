@@ -1,4 +1,5 @@
-import alt, { Player, Vehicle } from 'alt';
+/// <reference path="../../../../typings/altv-server.d.ts" />
+import * as alt from "alt"
 import chat from 'chat';
 
 export function Startup() {
