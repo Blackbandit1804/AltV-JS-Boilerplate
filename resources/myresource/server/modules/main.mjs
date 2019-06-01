@@ -1,7 +1,9 @@
 import alt, { Player, Vehicle } from 'alt';
 import chat from 'chat';
 
-console.log('==> MyResource Started Successfully');
+export function Startup() {
+    console.log('Main File Loaded!');
+}
 
 // Called on Serverside
 alt.on('playerConnect', (player) => {
