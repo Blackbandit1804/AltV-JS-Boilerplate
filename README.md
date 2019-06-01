@@ -1,5 +1,9 @@
 ### AltV.mp - JS - Boiler Plate
 ---
+
+Remember to 🌟 this Github if you 💖 it.
+
+---
 A super basic boiler plate that will let you write an alt:V resource from scratch.
 This boiler plate is entirely meant to take the setup out of alt:V node-js and just get you going outright.
 
