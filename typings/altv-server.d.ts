@@ -158,9 +158,6 @@ declare module "alt" {
   var rootDir: string;
   var vehicles: Array<Vehicle>;
 
-  export function createBlipForCoords(type: number, x: number, y: number, z: number): Blip;
-  export function createCheckpoint(type: number, x: number, y: number, z: number, radius: number, height: number, r: number, g: number, b: number, a: number): Checkpoint;
-  export function createVehicle(model: string|number|number, x: number, y: number, z: number, roll: number, pitch: number, yaw: number): Vehicle;
   export function createVoiceChannel(isSpatial: boolean, maxDistance: number): VoiceChannel;
   export function emit(evName: string, ...args: any[]): void;
   export function emitClient(v8Player: Player, evName: string, ...args: any[]): void;

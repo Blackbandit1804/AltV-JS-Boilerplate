@@ -1,4 +1,4 @@
-import alt from 'alt';
+import * as alt from 'alt';
 
 let cmdHandlers = {};
 
