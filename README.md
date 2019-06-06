@@ -9,6 +9,15 @@ This boiler plate is entirely meant to take the setup out of alt:V node-js and j
 
 To continue using types in new files add the following at the top of your file:
 
+---
+This repository uses the BETA BRANCH. In your altv.cfg where your altv.exe is set your client branch to 'beta'.
+```
+branch: 'beta'
+```
+
+Ensure you download the latest node-module and server.exe from the official alt:v discord.
+
+---
 **Server**
 ```
 /// <reference path="../../../../typings/altv-server.d.ts" />
