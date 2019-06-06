@@ -1,4 +1,5 @@
 import * as alt from 'alt';
+import { WebView } from 'alt';
 import * as game from 'natives';
 
 let buffer = [];
@@ -7,7 +8,7 @@ let loaded = false;
 let opened = false;
 let hidden = false;
 
-let view = new alt.WebView("http://resources/chat/html/index.html");
+let view = new WebView("http://resources/chat/html/index.html");
 
 function addMessage(name, text) {
   if (name) {
